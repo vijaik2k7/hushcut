@@ -4,7 +4,6 @@
   "argv": [
     "/opt/homebrew/Cellar/node/25.9.0_2/bin/node",
     "/Users/vijai/.npm/_npx/69f9afb961c37556/node_modules/.bin/vc",
-    "deploy",
     "--temporary",
     "--yes"
   ],
