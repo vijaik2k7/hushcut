@@ -1,8 +1,9 @@
 {
-  "name": "hushcut",
+  "name": "pulse-metronome",
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://vijaik2k7.github.io/pulse-metronome",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

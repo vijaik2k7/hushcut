@@ -2,40 +2,70 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HushCut — Extract Audio & Cut Dead Air Online</title>
-    <meta name="description" content="Free browser-based audio extractor and silence trimmer. Remove dead air, cut silent pauses, and export MP3/WAV files in seconds." />
-    <meta name="keywords" content="audio extractor, silence trimmer, remove dead air, cut silence audio, video to mp3, web audio api silence remover" />
+    
+    <!-- Primary SEM/SEO Meta Tags -->
+    <title>Pulse Metronome — Free Online Metronome & Precision Tempo Trainer</title>
+    <meta name="title" content="Pulse Metronome — Free Online Metronome & Precision Tempo Trainer" />
+    <meta name="description" content="Free, sample-accurate online metronome app powered by Web Audio API for zero timing drift. Features tap tempo, custom beat accent patterns, 3 sound profiles, Italian tempo terms, and dark mode. Ideal for musicians, rhythm practice, and music theory." />
+    <meta name="keywords" content="online metronome, free metronome, precision metronome, web audio metronome, tap tempo online, tempo trainer, practice metronome app, beat accent pattern, rhythm practice online, music metronome" />
+    <meta name="author" content="Pulse Metronome" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#D97757" />
 
-    <!-- Open Graph / Social Media -->
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://vijaik2k7.github.io/pulse-metronome/" />
+
+    <!-- SVG Favicon with Terracotta Metronome Wave -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23D97757'/><path d='M50 20 L65 75 L35 75 Z' fill='white'/><circle cx='50' cy='42' r='7' fill='%231F1E1B'/></svg>" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="HushCut — Extract Audio & Cut Dead Air Online" />
-    <meta property="og:description" content="Free browser-based audio extractor and silence trimmer. Remove dead air and export MP3/WAV files in seconds." />
+    <meta property="og:url" content="https://vijaik2k7.github.io/pulse-metronome/" />
+    <meta property="og:title" content="Pulse Metronome — Free Online Metronome & Precision Tempo Trainer" />
+    <meta property="og:description" content="Sample-accurate web metronome with zero timing drift. Features tap tempo, custom beat accent patterns, 3 sound profiles, Italian tempo terms, and dark mode." />
+    <meta property="og:site_name" content="Pulse Metronome" />
+    <meta property="og:locale" content="en_US" />
 
-    <!-- Schema.org WebApplication Structured Data for Google SERP -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pulse Metronome — Free Online Metronome & Precision Tempo Trainer" />
+    <meta name="twitter:description" content="Sample-accurate web metronome with zero timing drift. Features tap tempo, custom beat accent patterns, 3 sound profiles, Italian tempo terms, and dark mode." />
+
+    <!-- Schema.org WebApplication & SoftwareApplication Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "HushCut",
-      "applicationCategory": "MultimediaApplication",
+      "@type": "SoftwareApplication",
+      "name": "Pulse Metronome",
+      "url": "https://vijaik2k7.github.io/pulse-metronome/",
+      "applicationCategory": "MusicApplication",
       "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript and Web Audio API",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
       },
-      "description": "Extract audio from videos, detect and ripple-delete silent pauses, and export WAV or MP3 files directly in your browser."
+      "description": "Free, high-precision web metronome powered by Web Audio API lookahead scheduling. Features tap tempo, custom beat accents, 3 sound profiles, and Italian tempo terms.",
+      "featureList": [
+        "Sample-accurate Web Audio API lookahead scheduler",
+        "Interactive beat accent pattern matrix",
+        "Tap Tempo with rolling interval calculation",
+        "3 sound profiles: Woodblock, Mechanical Click, Warm Synth",
+        "Dynamic Italian Tempo terms (Largo, Moderato, Presto)",
+        "Anthropic Warm Light and Obsidian Dark themes",
+        "Full keyboard shortcuts (Space, Arrows, T)"
+      ]
     }
     </script>
 
-    <!-- Fonts -->
+    <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-[#09090b] text-zinc-100 font-sans antialiased selection:bg-[#FF5500] selection:text-white min-h-screen overflow-x-hidden">
+  <body class="bg-[#141413] text-[#EDECE8] font-sans antialiased selection:bg-[#D97757] selection:text-white h-screen overflow-hidden">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
