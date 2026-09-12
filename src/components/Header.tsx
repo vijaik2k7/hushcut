@@ -1,5 +1,4 @@
-import React from 'react';
-import { Scissors, ShieldCheck, RotateCcw, Keyboard, FileAudio, Sun, Moon, Coffee } from 'lucide-react';
+import { Scissors, ShieldCheck, RotateCcw, Keyboard, FileAudio, Sun, Moon } from 'lucide-react';
 import { AudioFileMetadata, ThemeMode } from '../types/audio';
 
 interface HeaderProps {
@@ -86,21 +85,6 @@ export const Header: React.FC<HeaderProps> = ({
           <ShieldCheck className="w-3.5 h-3.5" />
           <span>Local processing</span>
         </div>
-
-        {/* Minimalist Coffee Icon Button */}
-        <a
-          href="https://buymeacoffee.com/vijaik2k7"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`p-2 border rounded-md transition-colors ${
-            isDark
-              ? 'bg-zinc-900 hover:bg-zinc-800 border-zinc-800 text-amber-400 hover:text-amber-300'
-              : 'bg-[#f4efe6] hover:bg-[#e4ddd0] border-[#d8cfbe] text-amber-700 hover:text-amber-800 shadow-sm'
-          }`}
-          title="Buy me a coffee"
-        >
-          <Coffee className="w-4 h-4" />
-        </a>
 
         {/* Clean Theme Toggle Icon Button */}
         <button
