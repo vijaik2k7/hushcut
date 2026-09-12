@@ -61,28 +61,22 @@
     }
     </script>
 
-    <!-- Google Analytics 4 (GA4) Tag Container -->
+    <!-- Google Analytics 4 (GA4) Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M76VCQKCSC"></script>
     <script>
-      window.GA_MEASUREMENT_ID = 'G-M76VCQKCSC';
-      if (window.GA_MEASUREMENT_ID && window.GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX') {
-        var gaScript = document.createElement('script');
-        gaScript.async = true;
-        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_MEASUREMENT_ID;
-        document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', window.GA_MEASUREMENT_ID);
-      }
+      gtag('config', 'G-M76VCQKCSC');
     </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index.1789243743406.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index.1789243743406.css">
+    <script type="module" crossorigin src="./assets/index.1789243839649.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index.1789243839649.css">
   </head>
   <body class="bg-[#09090b] text-zinc-100 font-sans antialiased selection:bg-[#FF5500] selection:text-white min-h-screen overflow-x-hidden">
     <div id="root"></div>
