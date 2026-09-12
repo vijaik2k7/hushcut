@@ -87,16 +87,19 @@ export const Header: React.FC<HeaderProps> = ({
           <span>Local processing</span>
         </div>
 
-        {/* Buy Me a Coffee Button */}
+        {/* Minimalist Coffee Icon Button */}
         <a
           href="https://buymeacoffee.com/vijaik2k7"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-sans font-bold rounded-md bg-[#FFDD00] hover:bg-[#FACC15] text-stone-900 border border-amber-300 shadow-sm transition-transform active:scale-95"
-          title="Support HushCut - Buy me a coffee"
+          className={`p-2 border rounded-md transition-colors ${
+            isDark
+              ? 'bg-zinc-900 hover:bg-zinc-800 border-zinc-800 text-amber-400 hover:text-amber-300'
+              : 'bg-[#f4efe6] hover:bg-[#e4ddd0] border-[#d8cfbe] text-amber-700 hover:text-amber-800 shadow-sm'
+          }`}
+          title="Buy me a coffee"
         >
-          <Coffee className="w-3.5 h-3.5 text-amber-950 fill-amber-950" />
-          <span className="hidden sm:inline">Buy me a coffee</span>
+          <Coffee className="w-4 h-4" />
         </a>
 
         {/* Clean Theme Toggle Icon Button */}

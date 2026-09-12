@@ -390,7 +390,7 @@ export const App: React.FC = () => {
         )}
       </main>
 
-      {/* Clean Footer with Buy Me A Coffee link */}
+      {/* Clean Footer with subtle Coffee icon link */}
       <footer
         className={`border-t py-3.5 px-4 text-center font-mono text-xs flex flex-wrap items-center justify-between gap-3 transition-colors ${
           isDark ? 'border-zinc-900 bg-[#09090b] text-zinc-500' : 'border-[#d8cfbe] bg-[#eee8dd] text-stone-700'
@@ -401,9 +401,12 @@ export const App: React.FC = () => {
           href="https://buymeacoffee.com/vijaik2k7"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 font-sans font-bold text-amber-600 hover:text-amber-500 transition-colors"
+          className={`inline-flex items-center gap-1.5 font-sans font-medium transition-colors ${
+            isDark ? 'text-zinc-400 hover:text-amber-400' : 'text-stone-700 hover:text-amber-800'
+          }`}
+          title="Buy me a coffee"
         >
-          <Coffee className="w-3.5 h-3.5" />
+          <Coffee className="w-3.5 h-3.5 text-amber-500" />
           <span>Buy me a coffee</span>
         </a>
       </footer>
