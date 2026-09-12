@@ -61,20 +61,14 @@
     }
     </script>
 
-    <!-- Google Analytics 4 (GA4) Tag Container -->
+    <!-- Google Analytics 4 (GA4) Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M76VCQKCSC"></script>
     <script>
-      window.GA_MEASUREMENT_ID = 'G-M76VCQKCSC';
-      if (window.GA_MEASUREMENT_ID && window.GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX') {
-        var gaScript = document.createElement('script');
-        gaScript.async = true;
-        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_MEASUREMENT_ID;
-        document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', window.GA_MEASUREMENT_ID);
-      }
+      gtag('config', 'G-M76VCQKCSC');
     </script>
 
     <!-- Fonts -->
