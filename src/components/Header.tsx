@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scissors, ShieldCheck, RotateCcw, Keyboard, FileAudio, Sun, Moon } from 'lucide-react';
+import { Scissors, ShieldCheck, RotateCcw, Keyboard, FileAudio, Sun, Moon, Coffee } from 'lucide-react';
 import { AudioFileMetadata, ThemeMode } from '../types/audio';
 
 interface HeaderProps {
@@ -77,7 +77,7 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="flex items-center gap-2 sm:gap-3">
         {/* Subtle Local Processing Badge */}
         <div
-          className={`flex items-center gap-1.5 border text-xs px-2.5 py-1 rounded-md font-mono ${
+          className={`hidden lg:flex items-center gap-1.5 border text-xs px-2.5 py-1 rounded-md font-mono ${
             isDark
               ? 'bg-emerald-950/40 text-emerald-400 border-emerald-800/50'
               : 'bg-emerald-100/70 text-emerald-800 border-emerald-300'
@@ -86,6 +86,18 @@ export const Header: React.FC<HeaderProps> = ({
           <ShieldCheck className="w-3.5 h-3.5" />
           <span>Local processing</span>
         </div>
+
+        {/* Buy Me a Coffee Button */}
+        <a
+          href="https://buymeacoffee.com/vijaik2k7"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-sans font-bold rounded-md bg-[#FFDD00] hover:bg-[#FACC15] text-stone-900 border border-amber-300 shadow-sm transition-transform active:scale-95"
+          title="Support HushCut - Buy me a coffee"
+        >
+          <Coffee className="w-3.5 h-3.5 text-amber-950 fill-amber-950" />
+          <span className="hidden sm:inline">Buy me a coffee</span>
+        </a>
 
         {/* Clean Theme Toggle Icon Button */}
         <button

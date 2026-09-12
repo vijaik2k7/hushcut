@@ -22,7 +22,7 @@ import { detectSilence } from './services/silenceDetector';
 import { encodeWav } from './services/wavEncoder';
 import { encodeMp3 } from './services/mp3Encoder';
 
-import { Loader2, AlertTriangle, XCircle, CheckCircle2 } from 'lucide-react';
+import { Loader2, AlertTriangle, XCircle, CheckCircle2, Coffee } from 'lucide-react';
 
 export const App: React.FC = () => {
   // Theme state ('dark' | 'light') with local storage persistence
@@ -390,13 +390,22 @@ export const App: React.FC = () => {
         )}
       </main>
 
-      {/* Clean, unobtrusive Footer */}
+      {/* Clean Footer with Buy Me A Coffee link */}
       <footer
-        className={`border-t py-3 px-4 text-center font-mono text-[11px] transition-colors ${
+        className={`border-t py-3.5 px-4 text-center font-mono text-xs flex flex-wrap items-center justify-between gap-3 transition-colors ${
           isDark ? 'border-zinc-900 bg-[#09090b] text-zinc-500' : 'border-[#d8cfbe] bg-[#eee8dd] text-stone-700'
         }`}
       >
-        HushCut • Fast Audio Extractor & Silence Trimmer
+        <span>HushCut • Fast Audio Extractor & Silence Trimmer</span>
+        <a
+          href="https://buymeacoffee.com/vijaik2k7"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 font-sans font-bold text-amber-600 hover:text-amber-500 transition-colors"
+        >
+          <Coffee className="w-3.5 h-3.5" />
+          <span>Buy me a coffee</span>
+        </a>
       </footer>
 
       {/* Shortcuts Modal */}
