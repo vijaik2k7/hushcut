@@ -1,113 +1,132 @@
 import React from 'react';
-import { Sun, Moon, Volume2, VolumeX, Activity } from 'lucide-react';
-import { SoundProfile } from '../services/audioSynthesizer';
+import { Scissors, ShieldCheck, RotateCcw, Keyboard, FileAudio, Sun, Moon } from 'lucide-react';
+import { AudioFileMetadata, ThemeMode } from '../types/audio';
 
-export interface HeaderProps {
-  isDark?: boolean;
-  onToggleTheme?: () => void;
-  volume?: number;
-  onVolumeChange?: (vol: number) => void;
-  soundProfile?: SoundProfile;
-  onSoundProfileChange?: (sp: SoundProfile) => void;
-  italianTerm?: string;
-  // Backward compatibility with legacy App.tsx before Task 5
-  metadata?: unknown;
-  onReset?: () => void;
-  onOpenShortcuts?: () => void;
-  theme?: unknown;
+interface HeaderProps {
+  metadata: AudioFileMetadata | null;
+  onReset: () => void;
+  onOpenShortcuts: () => void;
+  theme: ThemeMode;
+  onToggleTheme: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  isDark = false,
-  onToggleTheme = () => {},
-  volume = 0.8,
-  onVolumeChange = () => {},
-  soundProfile = 'woodblock',
-  onSoundProfileChange = () => {},
-  italianTerm = 'Moderato',
+  metadata,
+  onReset,
+  onOpenShortcuts,
+  theme,
+  onToggleTheme,
 }) => {
+  const isDark = theme === 'dark';
+
   return (
-    <header className="w-full border-b border-[var(--border-subtle)] bg-[var(--bg-card)]/80 backdrop-blur-md px-4 sm:px-6 py-2 sm:py-2.5 sticky top-0 z-30 transition-colors duration-200">
-      <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-4">
-        {/* Brand & Italian Term */}
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-[var(--accent-terracotta)]/15 flex items-center justify-center text-[var(--accent-terracotta)] shadow-sm">
-            <Activity className="w-4 h-4 animate-pulse" />
-          </div>
-          <div className="flex items-center gap-2.5">
-            <h1 className="font-serif text-xl sm:text-2xl font-semibold tracking-tight text-[var(--text-primary)]">
-              Pulse Metronome
-            </h1>
-            {italianTerm && (
-              <span className="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-serif italic text-[var(--text-secondary)] bg-[var(--bg-muted)] border border-[var(--border-subtle)]">
-                {italianTerm}
-              </span>
-            )}
-          </div>
+    <header
+      className={`border-b px-4 py-3 sm:px-6 flex flex-wrap items-center justify-between gap-4 sticky top-0 z-30 transition-colors ${
+        isDark ? 'border-zinc-800 bg-[#0c0c0e]' : 'border-[#d8cfbe] bg-[#eee8dd]'
+      }`}
+    >
+      {/* Left Branding */}
+      <div className="flex items-center gap-3">
+        <div className="w-9 h-9 rounded-lg bg-[#FF5500] text-white flex items-center justify-center font-black shadow-lg shadow-[#FF5500]/20">
+          <Scissors className="w-5 h-5 -rotate-45" />
         </div>
-
-        {/* Right Controls: Sound profile, Volume, Theme toggle */}
-        <div className="flex items-center gap-3 sm:gap-4 ml-auto">
-          {/* Sound Profile Selector */}
-          <div className="flex items-center gap-1.5">
-            <label htmlFor="sound-profile-select" className="sr-only">
-              Sound Profile
-            </label>
-            <select
-              id="sound-profile-select"
-              value={soundProfile}
-              onChange={(e) => onSoundProfileChange(e.target.value as SoundProfile)}
-              className="text-xs font-sans font-medium px-2.5 py-1.5 rounded-lg bg-[var(--bg-muted)] text-[var(--text-primary)] border border-[var(--border-subtle)] focus:outline-none focus:border-[var(--accent-terracotta)] cursor-pointer transition-all hover:border-[var(--accent-sand)]"
+        <div>
+          <div className="flex items-center gap-2">
+            <h1 className={`font-bold text-lg tracking-tight font-mono ${isDark ? 'text-white' : 'text-stone-900'}`}>
+              HushCut
+            </h1>
+            <span
+              className={`text-[10px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded border ${
+                isDark
+                  ? 'bg-zinc-800 text-zinc-400 border-zinc-700'
+                  : 'bg-[#ded6c7] text-stone-800 border-[#c7bcaa]'
+              }`}
             >
-              <option value="woodblock">Woodblock</option>
-              <option value="mechanical">Mechanical</option>
-              <option value="synth">Warm Synth</option>
-            </select>
-          </div>
-
-          {/* Volume Control */}
-          <div className="flex items-center gap-2 bg-[var(--bg-muted)]/70 px-2.5 py-1 rounded-lg border border-[var(--border-subtle)]">
-            <button
-              onClick={() => onVolumeChange(volume > 0 ? 0 : 0.8)}
-              className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-              title={volume > 0 ? 'Mute' : 'Unmute'}
-              aria-label={volume > 0 ? 'Mute' : 'Unmute'}
-            >
-              {volume > 0 ? (
-                <Volume2 className="w-3.5 h-3.5" />
-              ) : (
-                <VolumeX className="w-3.5 h-3.5 text-red-400" />
-              )}
-            </button>
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.05"
-              value={volume}
-              onChange={(e) => onVolumeChange(parseFloat(e.target.value))}
-              className="w-16 sm:w-20 h-1.5 rounded-lg appearance-none cursor-pointer bg-[var(--border-subtle)]"
-              aria-label="Volume slider"
-            />
-            <span className="text-[10px] font-mono tabular-nums text-[var(--text-secondary)] min-w-[28px]">
-              {Math.round(volume * 100)}%
+              v1.0
             </span>
           </div>
-
-          {/* Theme Toggle */}
-          <button
-            onClick={onToggleTheme}
-            className="p-2 rounded-lg bg-[var(--bg-muted)] hover:bg-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-subtle)] transition-all"
-            title={isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
-            aria-label="Toggle color theme"
-          >
-            {isDark ? (
-              <Sun className="w-4 h-4 text-amber-400" />
-            ) : (
-              <Moon className="w-4 h-4 text-stone-700" />
-            )}
-          </button>
+          <p className={`text-xs font-sans hidden sm:block ${isDark ? 'text-zinc-400' : 'text-stone-700'}`}>
+            Extract audio. Cut the dead air.
+          </p>
         </div>
+      </div>
+
+      {/* Middle Active File Badge */}
+      {metadata && (
+        <div
+          className={`hidden md:flex items-center gap-2.5 border rounded-lg px-3 py-1.5 text-xs font-mono transition-colors ${
+            isDark
+              ? 'bg-zinc-900 border-zinc-800 text-zinc-300'
+              : 'bg-[#f4efe6] border-[#d8cfbe] text-stone-800 shadow-sm'
+          }`}
+        >
+          <FileAudio className="w-4 h-4 text-[#FF5500]" />
+          <span className={`truncate max-w-[200px] font-medium ${isDark ? 'text-white' : 'text-stone-900'}`}>
+            {metadata.fileName}
+          </span>
+          <span className={isDark ? 'text-zinc-600' : 'text-stone-400'}>•</span>
+          <span className={isDark ? 'text-zinc-400' : 'text-stone-700'}>{metadata.sampleRate / 1000}kHz</span>
+          <span className={isDark ? 'text-zinc-600' : 'text-stone-400'}>•</span>
+          <span className={isDark ? 'text-zinc-400' : 'text-stone-700'}>
+            {metadata.numberOfChannels === 1 ? 'Mono' : 'Stereo'}
+          </span>
+        </div>
+      )}
+
+      {/* Right Controls */}
+      <div className="flex items-center gap-2 sm:gap-3">
+        {/* Subtle Local Processing Badge */}
+        <div
+          className={`flex items-center gap-1.5 border text-xs px-2.5 py-1 rounded-md font-mono ${
+            isDark
+              ? 'bg-emerald-950/40 text-emerald-400 border-emerald-800/50'
+              : 'bg-emerald-100/70 text-emerald-800 border-emerald-300'
+          }`}
+        >
+          <ShieldCheck className="w-3.5 h-3.5" />
+          <span>Local processing</span>
+        </div>
+
+        {/* Clean Theme Toggle Icon Button */}
+        <button
+          onClick={onToggleTheme}
+          className={`p-2 border rounded-md transition-colors ${
+            isDark
+              ? 'bg-zinc-900 hover:bg-zinc-800 border-zinc-800 text-amber-400'
+              : 'bg-[#f4efe6] hover:bg-[#e4ddd0] border-[#d8cfbe] text-amber-600 shadow-sm'
+          }`}
+          title={isDark ? 'Switch to Beige Theme' : 'Switch to Dark Theme'}
+        >
+          {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4 text-stone-800" />}
+        </button>
+
+        {/* Keyboard Shortcuts Trigger */}
+        <button
+          onClick={onOpenShortcuts}
+          className={`p-2 border rounded-md transition-colors ${
+            isDark
+              ? 'text-zinc-400 hover:text-white bg-zinc-900 hover:bg-zinc-800 border-zinc-800'
+              : 'text-stone-700 hover:text-stone-900 bg-[#f4efe6] hover:bg-[#e4ddd0] border-[#d8cfbe] shadow-sm'
+          }`}
+          title="Keyboard Shortcuts"
+        >
+          <Keyboard className="w-4 h-4" />
+        </button>
+
+        {/* Reset / Clear Button */}
+        {metadata && (
+          <button
+            onClick={onReset}
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-md border transition-colors ${
+              isDark
+                ? 'text-zinc-300 hover:text-white bg-zinc-900 hover:bg-zinc-800 border-zinc-800'
+                : 'text-stone-800 hover:text-stone-900 bg-[#f4efe6] hover:bg-[#e4ddd0] border-[#d8cfbe] shadow-sm'
+            }`}
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>Start Over</span>
+          </button>
+        )}
       </div>
     </header>
   );
