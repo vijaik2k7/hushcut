@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vijaik2k7.github.io/hushcut/sitemap.xml
